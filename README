@@ -1,0 +1,55 @@
+Introduction
+------------
+This package provides "Pyscanlogd", a port-scanning 
+detection tool entirely written in Python. PyScanLog
+is inspired by scanlogd {http://www.openwall.com/scanlogd}.
+
+Licensing
+---------
+The code is released under New BSD License.
+
+Dependencies
+------------
+The code is dependent upon pypcap and dpkt. However there
+are problems with automatic installation of these packages
+through setup.py, so they are not added as dependencies
+into setup.py.
+
+Instead either use your system's package manager to
+install the dependencies or visit their respective
+project pages to build from the latest source tarball.
+
+pypcap: https://code.google.com/p/pypcap/
+dpkt:   http://code.google.com/p/dpkt/
+
+In Ubuntu, these dependencies can be installed by
+
+$ sudo apt-get install python-pcap python-dpkt
+
+Installation
+------------
+$ sudo python setup.py install
+
+Usage
+-----
+To run with default options just run the tool as root.
+All scans are logged to the console.
+
+$ sudo pyscanlogd
+listening on eth0: 
+[2010-03-17 16:41:06]: TCP syn scan (flags:6) from 172.16.220.124 to 172.16.220.214 (ports:143,199,5900,256,111,1723,21,25,554,80,22)
+
+To log to a file pass the "-f" option.
+To run as daemon pass the "-d" option.
+
+Note: When running as daemon, if -f option is not provided,
+no output is printed to stdout.
+
+$ sudo pyscanlogd -d -f "/var/log/scanlogd.log"
+Daemonizing...
+$ listening on eth0: 
+
+Currently there is no option to a specific interface.
+By default pyscanlogd listens to the active interface
+in promiscous mode.
+
