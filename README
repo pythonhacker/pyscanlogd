@@ -24,7 +24,7 @@ dpkt:   http://code.google.com/p/dpkt/
 
 In Ubuntu, these dependencies can be installed by
 
-$ sudo apt-get install python-pcap python-dpkt
+$ sudo apt-get install python-pypcap python-dpkt
 
 Installation
 ------------
